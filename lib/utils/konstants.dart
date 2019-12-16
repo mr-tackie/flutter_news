@@ -53,8 +53,28 @@ const kTextMutedSmall = TextStyle(
 const kHeadlineSmall = TextStyle(
   fontSize: 16.0,
   color: Color(0xFF003154),
+  fontWeight: FontWeight.w900,
+  fontFamily: 'Libre'
+);
+
+const kHeadlineMuted = TextStyle(
+  fontSize: 16.0,
+  color: Color(0xFF999999),
+  fontWeight: FontWeight.w900,
+  fontFamily: 'Libre'
+);
+
+const kMessageBannerMain = TextStyle(
+  fontSize: 18.0,
+  color: Colors.white,
   fontWeight: FontWeight.bold,
-  fontFamily: 'Rubik'
+  fontFamily: 'Rubik',
+);
+
+const kMessageBannerSubtitle = TextStyle(
+  fontSize: 16.0,
+  color: Color(0xFFEEEEEE),
+  fontFamily: 'Rubik',
 );
 
 

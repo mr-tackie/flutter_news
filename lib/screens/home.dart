@@ -1,11 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:news_me/components/header-item.dart';
 import 'package:news_me/components/topstory.dart';
 import 'package:news_me/models/newsitem.dart';
-import 'package:news_me/utils/konstants.dart';
 import 'package:news_me/utils/news-api.dart';
 
 class HomeScreen extends StatefulWidget {

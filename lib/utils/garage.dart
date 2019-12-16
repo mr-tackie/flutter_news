@@ -10,7 +10,6 @@ class Garage{
 
   dynamic getItem(String key){
     dynamic item = _store.getItem(key);
-    print(item);
     return item;
   }
 
