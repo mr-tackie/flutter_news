@@ -42,6 +42,32 @@ class NewsAPI {
     }
   }
 
+  Future<List<Channel>> getChannels(String category) async {
+    
+    if(category == 'all'){
+      category = '';
+    }
+
+    var response = await http.get(
+        '${this.url}/sources?language=en&category=$category',
+        headers: {HttpHeaders.authorizationHeader: "Bearer $key"});
+    
+    if(response.statusCode == 200){
+      List<Channel> channels = [];
+      var body = jsonDecode(response.body);
+      var sources = body['sources'];
+
+      for(var source in sources){
+        channels.add(Channel.fromJson(source));
+      }
+
+      channels.shuffle();
+      return channels;
+    }else{
+      throw(Exception('Invalid HTTP request'));
+    }
+  }
+
   Future<List<NewsItem>> getNewsByCategory(String category) async{
     category = category.trim();
     var response = await http.get(
