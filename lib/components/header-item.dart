@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:news_me/screens/search.dart';
 import 'package:news_me/utils/konstants.dart';
 
 class HeaderItem extends StatelessWidget {
@@ -27,7 +28,19 @@ class HeaderItem extends StatelessWidget {
             )
           ],
         ),
-        Icon(LineIcons.search)
+        FlatButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              new MaterialPageRoute<Null>(
+                builder: (BuildContext context){
+                  return new SearchPage();
+                },
+                fullscreenDialog: true,
+              )
+            );
+          },
+          child: Icon(LineIcons.search),
+        )
       ],
     );
   }

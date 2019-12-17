@@ -43,6 +43,7 @@ class NewsAPI {
   }
 
   Future<List<NewsItem>> getNewsByCategory(String category) async{
+    category = category.trim();
     var response = await http.get(
         '${this.url}/top-headlines?country=us&category=$category&pageSize=25',
         headers: {HttpHeaders.authorizationHeader: "Bearer $key"});
@@ -62,4 +63,27 @@ class NewsAPI {
     }
 
   }
+
+  Future<List<NewsItem>> search(String query) async{
+    query = query.trim();
+    var response = await http.get(
+        '${this.url}/everything?language=en&q=$query&pageSize=25',
+        headers: {HttpHeaders.authorizationHeader: "Bearer $key"});
+    
+    if(response.statusCode == 200){
+      List<NewsItem> newsItems = [];
+      var body = jsonDecode(response.body);
+      var items = body['articles'];
+
+      for(var item in items){
+        newsItems.add(NewsItem.fromJson(item));
+      }
+
+      return newsItems;
+    }else{
+      throw(Exception('Invalid HTTP request ==> ${response.statusCode} : ${response.body}'));
+    }
+
+  }
+
 }
