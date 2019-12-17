@@ -11,4 +11,4 @@ To clone this project, run the `git clone https://github.com/mr-tackie/flutter_n
 2. Implement RxDart for state management
 
 ## Screenshots
-![1.png]
+![Home](1.png) ![NoFavoritesSet](2.png) ![Browse](3.png) ![Search](4.png)
